@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paint_board/custom/action_button.dart';
 import 'package:paint_board/provider/paint_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 
 class ToolBar extends StatelessWidget {
@@ -9,6 +8,7 @@ class ToolBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var p = Provider.of<PaintProvider>(context);
     var isLargeScreen = MediaQuery.of(context).size.width > 600;
+
     return Container(
       color: Colors.black12,
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
@@ -19,16 +19,7 @@ class ToolBar extends StatelessWidget {
         children: [
           ActionButton(
             text: 'SAVE',
-            onPressed: () async {
-              print('SAVE');
-
-              var status = await Permission.storage.status;
-              if (status.isDenied) {
-                await Permission.storage.request();
-              }
-
-              p.save();
-            },
+            onPressed: p.save,
           ),
           ActionButton(
             text: 'LOAD',
@@ -40,9 +31,7 @@ class ToolBar extends StatelessWidget {
             ),
           ActionButton(
             text: 'ADD',
-            onPressed: () {
-              print('ADD');
-            },
+            onPressed: p.add,
           ),
           if (isLargeScreen)
             Flexible(
@@ -63,15 +52,11 @@ class ToolBar extends StatelessWidget {
             ),
           ActionButton(
             text: 'PEN',
-            onPressed: () {
-              print('PEN');
-            },
+            onPressed: () => p.changeMode('PEN'),
           ),
           ActionButton(
             text: 'ERASE',
-            onPressed: () {
-              print('ERASE');
-            },
+            onPressed: () => p.changeMode('ERASE'),
           ),
         ],
       ),

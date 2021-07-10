@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:paint_board/provider/paint_provider.dart';
 import 'package:paint_board/view/board.dart';
 import 'package:paint_board/view/tool_bar.dart';
@@ -23,7 +22,8 @@ class MyApp extends StatelessWidget {
                 child!,
                 Flexible(
                   child: RepaintBoundary(
-                    key: Provider.of<PaintProvider>(context).captureKey,
+                    key: Provider.of<PaintProvider>(context, listen: false)
+                        .captureKey,
                     child: Board(),
                   ),
                 ),
