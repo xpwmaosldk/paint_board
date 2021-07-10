@@ -94,7 +94,7 @@ class PaintProvider extends ChangeNotifier {
   void _clearData() {
     lines.clear();
     lineHistory.clear();
-    backgroundImageData?.clear();
+    backgroundImageData = null;
   }
 
   void add() {

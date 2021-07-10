@@ -1,16 +1,5 @@
 # paint_board
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Mac 개발 환경이 없어 IOS는 테스트 하지 못 했습니다.
+- 'LOAD'는 새로운 판으로 세팅합니다.
+- 'ADD'는 기존 정보 백그라운드에 세팅합니다.
+- 이미지 저장에 official한 package인 'path_provider'을 활용하려 했으나 이슈가 있어 'image_gallery_saver'를 사용했습니다.
